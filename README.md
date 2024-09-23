@@ -8,12 +8,14 @@ Based on the Zambia Revenue Authority monthly salary Tax payer's total tax contr
 
 __TO RUN THE PROGRAM__
 
-Open the terminal and run the following command:
-
 for python 2 use the file `taxcalculator_py_2.py`
+
+Open the terminal and run the following command:
 
 `python taxcalculator_py_2.py`
 
 for python 3 use the file `taxcalculator_py_3.py`
+
+Open the terminal and run the following command:
 
 `python3 taxcalculator_py_3.py`

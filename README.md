@@ -6,6 +6,8 @@ Based on the Zambia Revenue Authority monthly salary Tax payer's total tax contr
 
 - NHIMA: National Health Insurance at 1%.
 
+- PAYE: Pay as you earn.
+
 __TO RUN THE PROGRAM__
 
 for python 2 use the file `taxcalculator_py_2.py`

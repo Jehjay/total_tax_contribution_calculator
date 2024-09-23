@@ -1,6 +1,6 @@
 import re
 
-raw_salary_entry = raw_input("Enter the Zambian Kwacha monthly salary equivalent IN FULL: ")
+raw_salary_entry = input("Enter the Zambian Kwacha monthly salary equivalent IN FULL: ")
 
 # create a regular expression to handle the following cases:
 # check if the raw_salary_entry starts with non numeric character e.g. ZMW 3000 and remove it

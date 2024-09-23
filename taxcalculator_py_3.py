@@ -12,28 +12,23 @@ numeric_salary = re.sub("[a-z,A-Z,\s,c]", "", raw_salary_entry)
 salary = float(numeric_salary)
 
 def tax_payer(salary):
+#	GROSS SALARY	
 	gross_pay = (salary)
 	print("Tax payer's Gross monthly Salary is: ZMW " + str(gross_pay) + "\n")
 
-#	def napsa_pay(gross_pay):
+#	NAPSA
 	napsa_due = gross_pay * 0.05
 	print("Tax payer's NAPSA monthly Contribution @ 5% is: ZMW " + str(napsa_due))
-#		return napsa_due
-#	napsa_pay(gross_pay)
 
-#	def nihma_pay(gross_pay):
+#	NHIMA
 	nihma_due = gross_pay * 0.01
 	print("Tax payer's NIHMA monthly Contribution @ 1% is: ZMW " + str(nihma_due))
-#		return nihma_due
-#	nihma_pay(gross_pay)
 
-#	def contributions():
+#	CONTRIBUTIONS
 	total_contributions = napsa_due + nihma_due
 	print("Tax payer's Total monthly Contributions are: ZMW " + str(total_contributions))
-#		return total_contributions
-#	contributions()
 
-#	def paye(gross_pay):
+#	PAYE
 	def tb1(gross_pay):
 		chargeable_income = gross_pay
 		tax_rate_1 = 0.00
@@ -68,24 +63,19 @@ def tax_payer(salary):
 			tb3(gross_pay)
 		elif (gross_pay>9200.01):
 			tb4(gross_pay)
-#	paye(gross_pay)
-	
-#	def total_deduct():
+			
+#	TOTAL DEDUCTIONS
 	total_tax_deductions = tb1(gross_pay) + tb2(gross_pay) + tb3(gross_pay) + tb4(gross_pay)
 	print("Tax payer's Total monthly Tax Deductions: ZMW " + str(total_tax_deductions))
-#		return total_tax_deductions
-#	total_deduct()
 
-#	def total_tax():
+#	TOTAL TAX DUE
 	tax_due = total_contributions + total_tax_deductions
 	print("Tax payer's monthly Taxes due are: ZMW " + str(tax_due) + "\n")
-#		return tax_due
-#	total_tax()
 
+#	NET SALARY
 	net_salary = gross_pay - tax_due
 	print("Tax payer's monthly Net Salary is: ZMW " + str(net_salary) + "\n")
 
 	return net_salary
 
 tax_payer(salary)
-

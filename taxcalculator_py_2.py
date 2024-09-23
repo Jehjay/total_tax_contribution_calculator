@@ -68,7 +68,7 @@ def tax_payer(salary):
 	total_tax_deductions = tb1(gross_pay) + tb2(gross_pay) + tb3(gross_pay) + tb4(gross_pay)
 	print("Tax payer's Total monthly Tax Deductions: ZMW " + str(total_tax_deductions))
 
-#	TOTAL TAX
+#	TOTAL TAX DUE
 	tax_due = total_contributions + total_tax_deductions
 	print("Tax payer's monthly Taxes due are: ZMW " + str(tax_due) + "\n")
 

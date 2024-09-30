@@ -1,4 +1,12 @@
+# importing modules 
 import re
+import datetime
+from tabulate import tabulate
+from texttable import Texttable
+from reportlab.pdfgen import canvas 
+from reportlab.pdfbase.ttfonts import TTFont 
+from reportlab.pdfbase import pdfmetrics 
+from reportlab.lib import colors
 
 raw_salary_entry = raw_input("Enter the Zambian Kwacha monthly salary equivalent IN FULL: ")
 
@@ -7,10 +15,10 @@ if not type(raw_salary_entry) is str:
   
 else:
 	# create a regular expression to handle the following cases:
-	# check if the raw_salary_entry starts with non numeric character e.g. ZMW 3000 and remove it
-	# check if raw_salary_entry ends with non numeric character e.g. 3000 Kwacha only and remove it
-	# check if raw_salary_entry has a space e.g 30 000 and remove it
-	# check if raw_salary_entry has a comma e.g 30,000 and remove it
+	# check if the raw_salary_entry starts with non numeric character and remove it e.g. ZMW 3000 -> 3000
+	# check if raw_salary_entry ends with non numeric character and remove it e.g. 3000 Kwacha only -> 3000
+	# check if raw_salary_entry has a space and remove it e.g 30 000 -> 30000
+	# check if raw_salary_entry has a comma and remove it e.g 30,000 -> 30000
 	# check if raw_salary_entry has a special character such as !;:? and remove it
 
 	numeric_salary = re.sub("[^\d.]+", "", raw_salary_entry)
@@ -26,20 +34,20 @@ else:
 		
 		def tax_payer(salary):
 			gross_pay = (salary)
-			print("Tax payer's Gross monthly Salary is: ZMW " + str(gross_pay) + "\n")
+			gross_pay = (round(salary,5))
 			
 			#NAPSA
 			napsa_due = gross_pay * 0.05
-			print("Tax payer's NAPSA monthly Contribution @ 5% is: ZMW " + str(napsa_due))
-			
+			napsa_due = round(napsa_due,5)
+					
 			#NHIMA
 			nihma_due = gross_pay * 0.01
-			print("Tax payer's NIHMA monthly Contribution @ 1% is: ZMW " + str(nihma_due))
-			
+			nihma_due = round(nihma_due, 5)
+						
 			#TOTAL CONTRIBUTIONS
 			total_contributions = napsa_due + nihma_due
-			print("Tax payer's Total monthly Contributions are: ZMW " + str(total_contributions))
-
+			total_contributions = round(total_contributions, 5)
+			
 			#GROSS PAY
 			def tb1(gross_pay):
 				chargeable_income = gross_pay
@@ -78,16 +86,99 @@ else:
 		
 			#TOTAL DEDUCTIONS
 			total_tax_deductions = tb1(gross_pay) + tb2(gross_pay) + tb3(gross_pay) + tb4(gross_pay)
-			print("Tax payer's Total monthly Tax Deductions: ZMW " + str(total_tax_deductions))
-
+			total_tax_deductions = round(total_tax_deductions, 5)
+			
 			#TOTAL TAX
 			tax_due = total_contributions + total_tax_deductions
-			print("Tax payer's monthly Taxes due are: ZMW " + str(tax_due) + "\n")
-
+			tax_due = round(tax_due, 5)
+			
 			#NET SALARY
 			net_salary = gross_pay - tax_due
-			print("Tax payer's monthly Net Salary is: ZMW " + str(net_salary) + "\n")
+			net_salary = round(net_salary, 5)
+			
+
+			# TIME STAMP
+			# using datetime module
+			
+			# ct stores current time
+			ct = datetime.datetime.now()
+
+			# ts store timestamp of current time
+			ts = ct.timestamp()
+
+
+			# PRINT A TABLE FOR RESULTS
+			data = [gross_pay, napsa_due, nihma_due, total_contributions, total_tax_deductions, tax_due, net_salary]
+			t = Texttable()
+			t.add_rows([["Gross monthly Salary", "NAPSA monthly Contribution @ 5%", "NIHMA monthly Contribution @ 1%", "Total monthly Contributions", "Total monthly Tax Deductions", "monthly Taxes due", "monthly Net Salary"], data])
+			print("\n")
+			print(t.draw())
+
+
+			#GENERATE PDF
+			# initializing variables with values 
+			fileName = 'taxes.pdf'
+			documentTitle = 'taxes'
+			title = 'Total Monthly Tax Contributions'
+			subTitle = 'Tax payer\'s monthly taxes due'
+			textLines = [ 
+				"Tax payer's Gross monthly Salary is: ZMW " + str(gross_pay),
+				" " ,
+				"Tax payer's NAPSA monthly Contribution @ 5% is: ZMW " + str(napsa_due),
+				"Tax payer's NIHMA monthly Contribution @ 1% is: ZMW " + str(nihma_due),
+				"Tax payer's Total monthly Contributions are: ZMW " + str(total_contributions),
+				"Tax payer's Total monthly Tax Deductions: ZMW " + str(total_tax_deductions),
+				"Tax payer's monthly Taxes due are: ZMW " + str(tax_due),
+				" ",
+				"Tax payer's monthly Net Salary is: ZMW " + str(net_salary),
+				" ", " ", " ", " ", " ",
+				"Current Time: " + str(ct),
+				"Timestamp: " + str(ts)
+			] 
+			image = 'zra.png'
+
+			# creating a pdf object 
+			pdf = canvas.Canvas(fileName) 
+
+			# setting the title of the document 
+			pdf.setTitle(documentTitle) 
+
+			# registering a external font in python 
+			pdfmetrics.registerFont(TTFont('Vera', 'Vera.ttf'))
+			pdfmetrics.registerFont(TTFont('VeraBd', 'VeraBd.ttf'))
+			pdfmetrics.registerFont(TTFont('VeraIt', 'VeraIt.ttf'))
+			pdfmetrics.registerFont(TTFont('VeraBI', 'VeraBI.ttf'))
+
+			# creating the title by setting it's font 
+			# and putting it on the canvas 
+			pdf.setFont('Vera', 32) 
+			pdf.drawCentredString(300, 570, title) 
+
+			# creating the subtitle by setting it's font, 
+			# colour and putting it on the canvas 
+			pdf.setFillColorRGB(0, 0, 255) 
+			pdf.setFont("Courier-Bold", 24) 
+			pdf.drawCentredString(290, 520, subTitle) 
+
+			# drawing a line 
+			pdf.line(30, 510, 550, 510) 
+
+			# creating a multiline text using 
+			# textline and for loop 
+			text = pdf.beginText(20, 400) 
+			text.setFont("Courier", 15) 
+			text.setFillColor(colors.black) 
+			for line in textLines: 
+				text.textLine(line) 
+			pdf.drawText(text) 
+
+			# drawing a image at the 
+			# specified (x.y) position 
+			pdf.drawInlineImage(image, 130, 640) 
+
+			# saving the pdf 
+			pdf.save()
 
 			return net_salary
-
+			
 		tax_payer(salary)

@@ -28,5 +28,5 @@ __RESULTS__
 <a href="" target="_blank"><img src="https://github.com/Jehjay/total_tax_contribution_calculator/blob/main/terminal_result.jpeg" width="100%" height="250px" ></a>
 
 <li><b> PDF output in project folder </b></li>
- <iframe src="https://github.com/Jehjay/total_tax_contribution_calculator/blob/main/pdf_file_result.pdf" style="width: 100%;height: 100%;border: none;"></iframe>
+<a href="" target="_blank"><img src="https://github.com/Jehjay/total_tax_contribution_calculator/blob/main/pdf_output_result.jpeg" width="100%" height="250px" ></a>
 </ul>

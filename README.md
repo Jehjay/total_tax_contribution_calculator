@@ -8,6 +8,22 @@ Based on the Zambia Revenue Authority monthly salary Tax payer's total tax contr
 
 - PAYE: Pay as you earn.
 
+__<center>LIBRARIES INSTALLATIONS</center>__
+
+Please make sure to install any libraries not already installed.
+
+- Datetime, to generate a datestamp.
+
+`pip install DateTime`
+
+- texttable, to display the results in a table format.
+
+`pip install texttable`
+
+- reportlab, helps you create a PDF file of the results.
+
+`pip install reportlab`
+
 __TO RUN THE PROGRAM__
 
 for python 2 use the file `taxcalculator_py_2.py`

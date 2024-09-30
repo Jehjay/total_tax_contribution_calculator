@@ -24,11 +24,11 @@ Open the terminal and run the following command:
 
 __RESULTS__
 <ul>
-	<li><b> output in Terminal </b><a href="https://eftax.co.jp/en/" target="_blank"><img height="40px"
-	width="auto" src="https://github.com/Jehjay/total_tax_contribution_calculator/blob/main/terminal_result.jpeg" ></a></li>
+<li><b> output in Terminal </b></li>
+<a href="" target="_blank"><img src="https://github.com/Jehjay/total_tax_contribution_calculator/blob/main/terminal_result.jpeg" width="100%" height="250px" ></a>
 
-<li><b> output in Terminal </b><a href="https://eftax.co.jp/en/" target="_blank"><img height="40px"
-	width="auto" src="https://github.com/Jehjay/total_tax_contribution_calculator/blob/main/pdf_file_result.pdf" ></a></li>
+<li><b> PDF output </b></li>
+ <a href="" target="_blank"><img src="https://github.com/Jehjay/total_tax_contribution_calculator/blob/main/pdf_file_result.pdf" width="100%" height="250px" ></a>
 </ul>
 
 <div style="float: left;width: 49%; ">

@@ -1,6 +1,6 @@
 # Total tax contribution calculator
 
-Based on the Zambia Revenue Authority monthly salary Tax payer's total tax contribution - [Zambia Revenue Authority]https://www.zra.org.zm/calculate-paye/
+Based on the Zambia Revenue Authority monthly salary Tax payer's total tax contribution - [Zambia Revenue Authority](https://www.zra.org.zm/calculate-paye/)
 
 - NAPSA: National Pension Scheme Authority at 5%.
 
@@ -15,7 +15,10 @@ __<center>LIBRARIES INSTALLATIONS</center>__
 
 - Datetime, to generate a datestamp.
 
-`pip install DateTime`
+```python
+pip install DateTime
+```
+
 
 - texttable, to display the results in a table format.
 

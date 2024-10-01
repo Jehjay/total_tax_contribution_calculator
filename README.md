@@ -1,6 +1,6 @@
 # Total tax contribution calculator
 
-Based on the Zambia Revenue Authority monthly salary Tax payer's total tax contribution - https://www.zra.org.zm/calculate-paye/
+Based on the Zambia Revenue Authority monthly salary Tax payer's total tax contribution - [Zambia Revenue Authority]https://www.zra.org.zm/calculate-paye/
 
 - NAPSA: National Pension Scheme Authority at 5%.
 
@@ -8,9 +8,10 @@ Based on the Zambia Revenue Authority monthly salary Tax payer's total tax contr
 
 - PAYE: Pay as you earn.
 
-__<center>LIBRARIES INSTALLATIONS</center>__
+> [!NOTE]
+> Please make sure to install any libraries not already installed.
 
-Please make sure to install any libraries not already installed.
+__<center>LIBRARIES INSTALLATIONS</center>__
 
 - Datetime, to generate a datestamp.
 
@@ -18,11 +19,15 @@ Please make sure to install any libraries not already installed.
 
 - texttable, to display the results in a table format.
 
-`pip install texttable`
+```python
+pip install texttable
+```
 
 - reportlab, helps you create a PDF file of the results.
 
-`pip install reportlab`
+```python
+pip install reportlab
+```
 
 __TO RUN THE PROGRAM__
 
@@ -30,13 +35,17 @@ for python 2 use the file `taxcalculator_py_2.py`
 
 Open the terminal and run the following command:
 
-`python taxcalculator_py_2.py`
+```python
+python taxcalculator_py_2.py
+```
 
 for python 3 use the file `taxcalculator_py_3.py`
 
 Open the terminal and run the following command:
 
-`python3 taxcalculator_py_3.py`
+```python
+python3 taxcalculator_py_3.py
+```
 
 __RESULTS__
 <ul>

@@ -1,7 +1,6 @@
 # importing modules 
 import re
 import datetime
-from tabulate import tabulate
 from texttable import Texttable
 from reportlab.pdfgen import canvas 
 from reportlab.pdfbase.ttfonts import TTFont 

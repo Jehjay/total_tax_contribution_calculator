@@ -53,7 +53,7 @@ python3 taxcalculator_py_3.py
 __RESULTS__
 <ul>
 <li><b> output in Terminal </b></li>
-<a href="" target="_blank"><img src="https://github.com/Jehjay/total_tax_contribution_calculator/blob/main/terminal_result.jpeg" width="100%" height="250px" ></a>
+<a href="" target="_blank"><img src="https://github.com/Jehjay/total_tax_contribution_calculator/blob/main/terminal_result.jpeg" width="100%" height="100%" ></a>
 
 <li><b> PDF output in project folder </b></li>
 <a href="" target="_blank"><img src="https://github.com/Jehjay/total_tax_contribution_calculator/blob/main/pdf_output_result.jpeg" width="100%" height="100%" ></a>
